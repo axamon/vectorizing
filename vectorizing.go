@@ -18,7 +18,7 @@ const alfabeto string = "abcdefghijklmnopqrstuvwxyz"
 const alfabetoNoVocali string = "bcdfghjklmnpqrstvwxyz"
 const ascii string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@:-$."
 
-var isLetter *regexp.Regexp
+var isLetter = regexp.MustCompile(`[^a-z]`)
 
 // CreateNetwork creates a new network
 func CreateNetwork() (ff *gobrain.FeedForward, err error) {
@@ -184,7 +184,8 @@ func RecuperaTraccia(segment string) (traccia string) {
 
 	var vuota []string
 	for _, char := range chars {
-		switch isLetter.MatchString(string(char)) {
+		ok := isLetter.MatchString(string(char))
+		switch ok {
 		case false:
 			continue
 		default:
