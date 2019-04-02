@@ -18,7 +18,7 @@ const alfabeto string = "abcdefghijklmnopqrstuvwxyz"
 const alfabetoNoVocali string = "bcdfghjklmnpqrstvwxyz"
 const ascii string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@:-$."
 
-var isLetter = regexp.MustCompile(`[^a-z]`)
+var isLetter = regexp.MustCompile(`[a-z]`)
 
 // CreateNetwork creates a new network
 func CreateNetwork() (ff *gobrain.FeedForward, err error) {
